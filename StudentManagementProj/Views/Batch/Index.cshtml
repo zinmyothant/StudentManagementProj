@@ -1,0 +1,41 @@
+﻿@model IEnumerable<StudentManagementProj.Models.batch>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<p>
+    <br />
+    <a href="@Url.Content("~/batches/Create")" class="btn btn-success "><span class="glyphicon glyphicon-plus">Add New</span></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Batch
+        </th>
+        <th>
+            Year
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.batch1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                <a href="@Url.Content("~/Batch/Edit?id=")@item.Id" class="btn btn-primary "><span class="glyphicon glyphicon-edit"></span></a>
+                <a href="@Url.Content("~/Batch/Details?id=")@item.Id" class="btn btn-primary "><span class="glyphicon glyphicon-save"></span></a>
+                <a href="@Url.Content("~/Batch/Delete?id=")@item.Id" class="btn btn-danger "><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+    }
+
+</table>

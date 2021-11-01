@@ -1,0 +1,52 @@
+﻿@model IEnumerable<StudentManagementProj.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>User </h4>
+
+<p>
+    <br />
+    <a href="@Url.Content("~/User/Create")" class="btn btn-success"><span class="glyphicon glyphicon-plus">Add New</span></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            User Name
+        </th>
+
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName)
+            </td>
+
+            <td>
+                <a href="@Url.Content("~/User/Edit?id=")@item.Id" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> </a>
+                <a href="@Url.Content("~/User/Details?id=")@item.Id" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> </a>
+                <a href="@Url.Content("~/User/Delete?id=")@item.Id" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
